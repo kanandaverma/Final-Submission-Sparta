@@ -19,7 +19,7 @@ try:
         location.append(row[2])
         title.append(row[3])
         content.append(row[4])
-        print sid,rname,location,title,content
+        #print sid,rname,location,title,content
 except:
     print "Error:unable to fetch post"
 db.close()
@@ -39,7 +39,7 @@ try:
         city.append(row[1])
         phoneno.append(row[2])
         carrier.append(row[3])
-        print uid,city,phoneno,carrier
+        #print uid,city,phoneno,carrier
 except:
     print "Error:unable to fetch carrier"
 db1.close()
@@ -96,8 +96,8 @@ for i in range(len(carrier)):
         to.append(temp)
     else:
         continue
-print to
-print location
+#print to
+#print location
 lo=location.pop()
 for i in range(len(to)):
     fromaddr = "thedogoodproject2k17@gmail.com"
@@ -107,10 +107,10 @@ for i in range(len(to)):
     msg['To'] = toaddr
     msg['Subject'] = "FREE FOOD"
     body = str(lo[:len(lo)])+"  "
-    print body
+    #print body
     msg.attach(MIMEText(body, 'plain'))
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
     server.login(fromaddr, "Dogoodsparta")
-    #server.sendmail(fromaddr, toaddr, msg.as_string())
+    server.sendmail(fromaddr, toaddr, msg.as_string())
     server.quit()
